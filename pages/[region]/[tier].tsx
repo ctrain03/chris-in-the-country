@@ -6,22 +6,22 @@ import { NextSeo } from 'next-seo';
 // IDX Broker widget IDs - replace with your actual widget IDs from IDX Broker dashboard
 const IDX_WIDGETS: Record<string, Record<string, string>> = {
   'east-bay': {
-    entry:   'YOUR_EAST_BAY_ENTRY_WIDGET_ID',
-    mid:     'YOUR_EAST_BAY_MID_WIDGET_ID',
-    full:    'YOUR_EAST_BAY_FULL_WIDGET_ID',
-    luxury:  'YOUR_EAST_BAY_LUXURY_WIDGET_ID',
+    entry:   '146505',
+    mid:     '146510',
+    full:    '146516',
+    luxury:  '146526',
   },
   'south-bay': {
-    entry:   'YOUR_SOUTH_BAY_ENTRY_WIDGET_ID',
-    mid:     'YOUR_SOUTH_BAY_MID_WIDGET_ID',
-    full:    'YOUR_SOUTH_BAY_FULL_WIDGET_ID',
-    luxury:  'YOUR_SOUTH_BAY_LUXURY_WIDGET_ID',
+    entry:   '146539',
+    mid:     '146543',
+    full:    '146548',
+    luxury:  '146551',
   },
   'north-bay': {
-    entry:   'YOUR_NORTH_BAY_ENTRY_WIDGET_ID',
-    mid:     'YOUR_NORTH_BAY_MID_WIDGET_ID',
-    full:    'YOUR_NORTH_BAY_FULL_WIDGET_ID',
-    luxury:  'YOUR_NORTH_BAY_LUXURY_WIDGET_ID',
+    entry:   '146554',
+    mid:     '146556',
+    full:    '146559',
+    luxury:  '146562',
   },
 };
 
