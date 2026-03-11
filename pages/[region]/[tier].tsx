@@ -4,9 +4,9 @@ import Layout from '../../components/Layout'
 import { AGENT, REGIONS, REGION_KEYS, TIER_KEYS, Region, Tier } from '../../lib/regions'
 
 const REGION_IMAGES: Record<string, string> = {
-  'east-bay': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80&auto=format&fit=crop',
-  'south-bay': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1920&q=80&auto=format&fit=crop',
-  'north-bay': 'https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=1920&q=80&auto=format&fit=crop',
+  'east-bay': 'https://images.unsplash.com/photo-pGH1-iHveX0?w=1200&q=80&auto=format&fit=crop',
+  'south-bay': 'https://images.unsplash.com/photo-cnkvFuVUnLQ?w=1200&q=80&auto=format&fit=crop',
+  'north-bay': 'https://images.unsplash.com/photo-hvL5rWDjtq8?w=1200&q=80&auto=format&fit=crop',
 }
 
 interface TierPageProps {
@@ -190,3 +190,4 @@ export default function TierPage({
     </Layout>
   )
 }
+
