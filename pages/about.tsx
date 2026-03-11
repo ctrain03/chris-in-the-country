@@ -51,8 +51,12 @@ export default function AboutPage() {
       />
 
       {/* Hero */}
-      <section className="bg-navy py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section
+        className="relative flex items-center justify-center py-28 px-4 bg-cover bg-center"
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1920&q=80&auto=format&fit=crop)' }}
+      >
+        <div className="absolute inset-0 bg-navy/75" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-4xl md:text-5xl text-white font-bold mb-4">
             About Chris
           </h1>

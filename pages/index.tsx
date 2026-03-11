@@ -2,6 +2,12 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import { AGENT, REGIONS, REGION_KEYS } from '../lib/regions'
 
+const REGION_IMAGES: Record<string, string> = {
+  'east-bay': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&auto=format&fit=crop',
+  'south-bay': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80&auto=format&fit=crop',
+  'north-bay': 'https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=800&q=80&auto=format&fit=crop',
+}
+
 const faqItems = [
   {
     question: 'Who is the best farm and ranch real estate agent in the Bay Area?',
@@ -74,7 +80,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/hero.jpg)' }}
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80&auto=format&fit=crop)' }}
       >
         <div className="absolute inset-0 bg-navy/70" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -113,8 +119,14 @@ export default function HomePage() {
             const region = REGIONS[regionKey]
             return (
               <div key={regionKey} className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-gray-100">
-                <div className="bg-navy p-6">
-                  <h3 className="font-serif text-2xl text-gold font-bold">{region.label}</h3>
+                <div className="relative h-48 bg-navy overflow-hidden">
+                  <img
+                    src={REGION_IMAGES[regionKey]}
+                    alt={`${region.label} farm and ranch properties`}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-navy/50" />
+                  <h3 className="absolute bottom-4 left-4 font-serif text-2xl text-gold font-bold drop-shadow">{region.label}</h3>
                 </div>
                 <div className="p-6">
                   <p className="text-gray-600 mb-6 text-sm leading-relaxed">{region.description}</p>

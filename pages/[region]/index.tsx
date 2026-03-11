@@ -3,6 +3,12 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Layout from '../../components/Layout'
 import { AGENT, REGIONS, REGION_KEYS, TIER_KEYS, Region, Tier } from '../../lib/regions'
 
+const REGION_IMAGES: Record<string, string> = {
+  'east-bay': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80&auto=format&fit=crop',
+  'south-bay': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1920&q=80&auto=format&fit=crop',
+  'north-bay': 'https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=1920&q=80&auto=format&fit=crop',
+}
+
 interface RegionPageProps {
   regionKey: Region
   regionLabel: string
@@ -89,8 +95,12 @@ export default function RegionPage({ regionKey, regionLabel, regionDescription, 
       />
 
       {/* Hero */}
-      <section className="bg-navy py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section
+        className="relative flex items-center justify-center py-28 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `url(${REGION_IMAGES[regionKey]})` }}
+      >
+        <div className="absolute inset-0 bg-navy/70" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <nav className="text-sm text-blue-300 mb-4">
             <Link href="/" className="hover:text-gold transition-colors">Home</Link>
             <span className="mx-2">/</span>
