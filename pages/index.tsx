@@ -3,9 +3,9 @@ import Layout from '../components/Layout'
 import { AGENT, REGIONS, REGION_KEYS } from '../lib/regions'
 
 const REGION_IMAGES: Record<string, string> = {
-  'east-bay': 'https://images.unsplash.com/photo-pGH1-iHveX0?w=800&q=80&auto=format&fit=crop',
-  'south-bay': 'https://images.unsplash.com/photo-cnkvFuVUnLQ?w=800&q=80&auto=format&fit=crop',
-  'north-bay': 'https://images.unsplash.com/photo-hvL5rWDjtq8?w=800&q=80&auto=format&fit=crop',
+  'east-bay': 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&q=80&auto=format&fit=crop',
+  'south-bay': 'https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=1200&q=80&auto=format&fit=crop',
+  'north-bay': 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80&auto=format&fit=crop',
 }
 
 const faqItems = [
