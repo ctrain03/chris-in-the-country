@@ -1,149 +1,180 @@
-import type { NextPage } from 'next';
-import Link from 'next/link';
-import { NextSeo } from 'next-seo';
+import Layout from '../components/Layout'
+import { AGENT } from '../lib/regions'
 
-const contactSchema = {
+const agentSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  name: 'Chris in the Country',
+  url: AGENT.url,
+  telephone: AGENT.phone,
+  email: AGENT.email,
+  hasCredential: `CA DRE #${AGENT.dre}`,
+  memberOf: {
+    '@type': 'Organization',
+    name: AGENT.brokerage,
+  },
+}
+
+const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact Chris Traina | Chris in the Country',
-  url: 'https://www.chrisinthecountry.com/contact',
-  mainEntity: {
-    '@type': 'RealEstateAgent',
-    name: 'Chris Traina',
-    telephone: '+14084173393',
-    email: 'chris@chrisinthecountry.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressRegion: 'CA',
-      addressCountry: 'US',
-    },
-    openingHours: 'Mo-Su 08:00-20:00',
-    priceRange: 'Free Consultation',
-  },
-};
+  name: 'Contact Chris — Chris in the Country',
+  description: 'Get in touch with Chris, Bay Area farm and ranch real estate specialist.',
+  url: `${AGENT.url}/contact`,
+}
 
-const Contact: NextPage = () => {
+export default function ContactPage() {
   return (
-    <>
-      <NextSeo
-        title="Contact Chris Traina | Free Bay Area Farm & Ranch CMA"
-        description="Contact Chris Traina for a free comparative market analysis on your Bay Area farm, ranch or country property. (408) 417-3393. CA DRE #02013484."
-        canonical="https://www.chrisinthecountry.com/contact"
+    <Layout
+      title="Contact Chris — Bay Area Farm & Ranch Agent"
+      description={`Contact Chris for Bay Area farm, ranch, and country real estate. CA DRE #${AGENT.dre}. Call ${AGENT.phone} or send a message.`}
+      canonicalPath="/contact"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(agentSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
 
-      <nav className="bg-navy-900 border-b border-gold-700/30">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-serif text-xl text-cream hover:text-gold-400 transition-colors">
-            Chris <span className="text-gold-500">in the Country</span>
-          </Link>
-        </div>
-      </nav>
-
-      <section className="min-h-screen bg-cream py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="section-subtitle text-gold-600 mb-4">Get In Touch</p>
-            <h1 className="section-title">Free Market Analysis</h1>
-            <div className="gold-divider mx-auto" />
-            <p className="text-navy-600 max-w-xl mx-auto mt-4">
-              Whether you're buying or selling a farm, ranch, or country property in the Bay Area — let's talk. No pressure, just expertise.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div>
-              <div className="bg-navy-900 p-8 mb-8">
-                <h2 className="font-serif text-2xl text-white mb-6">Chris Traina</h2>
-                <div className="space-y-4">
-                  <a href="tel:+14084173393" className="flex items-center gap-3 text-cream/80 hover:text-gold-400 transition-colors">
-                    <span className="text-gold-500">📞</span>
-                    <span>(408) 417-3393</span>
-                  </a>
-                  <a href="mailto:chris@chrisinthecountry.com" className="flex items-center gap-3 text-cream/80 hover:text-gold-400 transition-colors">
-                    <span className="text-gold-500">✉️</span>
-                    <span>chris@chrisinthecountry.com</span>
-                  </a>
-                  <div className="flex items-center gap-3 text-cream/60">
-                    <span className="text-gold-500">🏛️</span>
-                    <span>CA DRE #02013484 · Boyd Real Estate</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-cream/60">
-                    <span className="text-gold-500">🕐</span>
-                    <span>Available Mon–Sun, 8am–8pm</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Appointment Booking */}
-              <div className="bg-gold-600 p-6">
-                <h3 className="font-serif text-xl text-white mb-2">Free Comparative Market Analysis</h3>
-                <p className="text-white/80 text-sm mb-4">1 hour · Free · Your property or virtual</p>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  Chris will visit your property and provide a detailed CMA — what your farm, ranch, or country home is worth in today's market, with a full marketing strategy included.
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-white p-8 border border-gray-100">
-              <h2 className="font-serif text-2xl text-navy-900 mb-6">Send a Message</h2>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.target as HTMLFormElement;
-                  const data = new FormData(form);
-                  // Netlify/Vercel form handling
-                  alert('Thank you! Chris will be in touch within 24 hours.');
-                  form.reset();
-                }}
-                className="space-y-4"
-              >
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-navy-600 mb-1">Name *</label>
-                  <input required name="name" type="text" className="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-gold-500 transition-colors" placeholder="Your full name" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-navy-600 mb-1">Email *</label>
-                  <input required name="email" type="email" className="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-gold-500 transition-colors" placeholder="your@email.com" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-navy-600 mb-1">Phone</label>
-                  <input name="phone" type="tel" className="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-gold-500 transition-colors" placeholder="(555) 000-0000" />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-navy-600 mb-1">I'm interested in</label>
-                  <select name="interest" className="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-gold-500 transition-colors bg-white">
-                    <option value="">Select one...</option>
-                    <option value="buying">Buying a farm/ranch/country home</option>
-                    <option value="selling">Selling my property</option>
-                    <option value="cma">Free market analysis only</option>
-                    <option value="investing">Investment property</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-navy-600 mb-1">Message</label>
-                  <textarea name="message" rows={4} className="w-full border border-gray-200 px-4 py-3 focus:outline-none focus:border-gold-500 transition-colors resize-none" placeholder="Tell Chris about your property or search criteria..." />
-                </div>
-                <button type="submit" className="btn-gold w-full">Send Message</button>
-                <p className="text-xs text-gray-400 text-center">Chris responds within 24 hours, usually much faster.</p>
-              </form>
-            </div>
-          </div>
+      {/* Hero */}
+      <section className="bg-navy py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="font-serif text-4xl md:text-5xl text-white font-bold mb-4">
+            Contact Chris
+          </h1>
+          <p className="text-cream text-xl">
+            Let&apos;s find your perfect Bay Area country property
+          </p>
         </div>
       </section>
 
-      <footer className="bg-navy-900 text-cream/60 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center text-xs">
-          <p>© {new Date().getFullYear()} Chris in the Country · CA DRE #02013484 · Boyd Real Estate</p>
-        </div>
-      </footer>
-    </>
-  );
-};
+      {/* Contact Content */}
+      <section className="py-16 px-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Info */}
+          <div>
+            <h2 className="font-serif text-2xl text-navy font-bold mb-6">Get in Touch</h2>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="bg-gold rounded-full p-2 mt-1 flex-shrink-0">
+                  <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Phone</p>
+                  <a href={`tel:${AGENT.phone}`} className="text-navy text-lg font-semibold hover:text-gold transition-colors">{AGENT.phone}</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-gold rounded-full p-2 mt-1 flex-shrink-0">
+                  <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Email</p>
+                  <a href={`mailto:${AGENT.email}`} className="text-navy text-lg font-semibold hover:text-gold transition-colors">{AGENT.email}</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-gold rounded-full p-2 mt-1 flex-shrink-0">
+                  <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Brokerage</p>
+                  <p className="text-navy text-lg font-semibold">{AGENT.brokerage}</p>
+                  <p className="text-gray-500 text-sm">CA DRE #{AGENT.dre}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="bg-gold rounded-full p-2 mt-1 flex-shrink-0">
+                  <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Response Time</p>
+                  <p className="text-navy text-lg font-semibold">Within 24 Hours</p>
+                  <p className="text-gray-500 text-sm">Often much sooner</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-export default Contact;
+          {/* Contact Form */}
+          <div>
+            <h2 className="font-serif text-2xl text-navy font-bold mb-6">Send a Message</h2>
+            <p className="text-gray-600 text-sm mb-6">
+              Fill out the form below and Chris will respond within 24 hours to discuss your Bay Area farm and ranch real estate needs.
+            </p>
+            <form
+              action={`mailto:${AGENT.email}`}
+              method="get"
+              encType="text/plain"
+              className="space-y-5"
+            >
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-navy mb-1">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Your full name"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-navy mb-1">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-navy mb-1">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(555) 000-0000"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-navy mb-1">Message</label>
+                <textarea
+                  id="message"
+                  name="body"
+                  required
+                  rows={5}
+                  placeholder="Tell Chris about the property you're looking for — location, acreage, budget, special requirements..."
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-navy text-white py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors text-lg"
+              >
+                Send Message
+              </button>
+              <p className="text-xs text-gray-400 text-center">
+                We&apos;ll respond within 24 hours. Your information is never shared.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
+}
