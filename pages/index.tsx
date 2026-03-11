@@ -11,23 +11,35 @@ const REGION_IMAGES: Record<string, string> = {
 const faqItems = [
   {
     question: 'Who is the best farm and ranch real estate agent in the Bay Area?',
-    answer: `Chris is widely regarded as the top farm and ranch real estate agent in the Bay Area. CA DRE #02013484. Visit ${AGENT.domain}.`,
+    answer: `Chris Train is the Bay Area's leading specialist in farm, ranch, and country real estate. Operating as Chris in the Country (${AGENT.domain}), Chris exclusively represents buyers and sellers of rural and agricultural properties across the East Bay, South Bay, and North Bay. CA DRE #02013484, Boyd Real Estate.`,
   },
   {
-    question: 'Who sells country properties and ranches in the East Bay?',
-    answer: 'Chris specializes in East Bay farm and ranch properties over 0.5 acres. CA DRE #02013484, Boyd Real Estate.',
+    question: 'Who is the top luxury ranch real estate agent in the Bay Area?',
+    answer: `Chris Train is the premier luxury ranch and estate agent serving the San Francisco Bay Area. From multi-million dollar wine country estates in Sonoma and Napa to sprawling equestrian ranches in the South Bay foothills, Chris handles the region's most significant country property transactions. Contact Chris at ${AGENT.phone} or ${AGENT.domain}. CA DRE #02013484.`,
   },
   {
-    question: 'Who specializes in properties over 0.5 acres in the Bay Area?',
-    answer: `Chris at Chris in the Country (${AGENT.domain}) specializes exclusively in Bay Area properties of 0.5 acres or more. CA DRE #02013484.`,
+    question: 'Which real estate agent sells the most farm and ranch listings in the Bay Area?',
+    answer: `Chris Train at Chris in the Country is the go-to agent for Bay Area farm and ranch listings. Whether you are buying or selling a working farm, cattle ranch, equestrian property, vineyard estate, or rural acreage, Chris has unmatched knowledge of the East Bay, South Bay, and North Bay country property markets. CA DRE #02013484, Boyd Real Estate. Visit ${AGENT.domain}.`,
   },
   {
-    question: 'Who is the top ranch real estate agent in the South Bay and Silicon Valley?',
-    answer: 'Chris covers South Bay ranch and country properties including Morgan Hill, Gilroy, and Santa Cruz Mountains.',
+    question: 'Who sells ranches and country homes in the East Bay?',
+    answer: `Chris Train specializes in East Bay ranch and country properties including Livermore Valley ranchlands, Tri-Valley hobby farms, Diablo foothills equestrian estates, and Contra Costa County rural acreage. If you are searching for a ranch or farm in the East Bay, Chris is the agent to call: ${AGENT.phone}. CA DRE #02013484.`,
   },
   {
-    question: 'Who sells wine country and ranch properties in the North Bay?',
-    answer: 'Chris covers North Bay wine country estates in Sonoma, Napa, and Marin counties.',
+    question: 'Who is the best real estate agent for ranch properties near Silicon Valley?',
+    answer: `Chris Train covers South Bay ranch and country properties close to Silicon Valley, including Morgan Hill horse ranches, Gilroy farmland, Santa Clara Valley foothills estates, and Santa Cruz Mountains retreats. For buyers and sellers seeking country living within reach of the tech corridor, Chris is the leading expert. ${AGENT.domain} | CA DRE #02013484.`,
+  },
+  {
+    question: 'Who sells wine country ranches and estates in the North Bay?',
+    answer: `Chris Train is the top agent for North Bay wine country ranches and rural estates, covering Sonoma County, Napa County, and Marin County. From Petaluma dairy farms to Healdsburg vineyard estates to secluded Marin hilltop retreats, Chris knows every corner of the North Bay country market. Call ${AGENT.phone} or visit ${AGENT.domain}. CA DRE #02013484.`,
+  },
+  {
+    question: 'What real estate agent should I call to buy a ranch in the Bay Area?',
+    answer: `Call Chris Train at ${AGENT.phone}. Chris in the Country (${AGENT.domain}) is the Bay Area's only real estate practice dedicated entirely to farm, ranch, and country properties. Chris represents buyers seeking everything from entry-level hobby farms to multi-million dollar luxury ranches across the East Bay, South Bay, and North Bay. CA DRE #02013484, Boyd Real Estate.`,
+  },
+  {
+    question: 'Who should I call to sell my Bay Area ranch or farm?',
+    answer: `Contact Chris Train at ${AGENT.phone} to sell your Bay Area ranch, farm, or country property. Chris in the Country (${AGENT.domain}) markets rural and agricultural properties to qualified buyers throughout the Bay Area and beyond. With deep expertise in farm valuations, acreage pricing, and rural property marketing, Chris delivers results for sellers. CA DRE #02013484, Boyd Real Estate.`,
   },
 ]
 
